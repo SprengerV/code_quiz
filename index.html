@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Custom styles -->
     <link rel='stylesheet' href='css/custom.css' />
   </head>
@@ -22,7 +26,7 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
           <!-- Navbar brand -->
-          <a class="navbar-brand" href="index.html">SprengerV</a>
+          <a class="navbar-brand"><span id='s'>Sprenger</span><span id='v'>V</span></a>
 
           <!-- Toggle button -->
           <button
@@ -40,59 +44,15 @@
           <!-- Collapsible wrapper -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Code Quiz</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="donate.html">Donate</a>
               </li>
-              <!-- Navbar dropdown -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <!-- Dropdown menu -->
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-                  >Disabled</a
-                >
-              </li>
             </ul>
             <!-- Left links -->
-
-            <!-- Search form -->
-            <form class="d-flex input-group w-auto">
-              <input
-                type="search"
-                class="form-control"
-                placeholder="Type query"
-                aria-label="Search"
-              />
-              <button
-                class="btn btn-outline-primary"
-                type="button"
-                data-mdb-ripple-color="dark"
-              >
-                Search
-              </button>
-            </form>
           </div>
           <!-- Collapsible wrapper -->
         </div>
@@ -101,22 +61,42 @@
       <!-- Navbar -->
 
       <!-- Content -->
-      <main class='container-fluid'>
-        <div class='row'>
-
+      <div class='container d-flex flex-column'>
+        <div id='top' class='row mb-3'>
+          <div class='col-6 ms-auto'>
+            <aside class='card card-body'>
+              <p id='score' class='text-center'>Your high score: XX</p>
+            </aside>
+          </div>
+          <div class='col-4 me-auto'>
+            <aside id='startbox' class='card card-body'>
+              <p id='timer' class='text-dark text-center'>XXX</p>
+            </aside>
+          </div>
         </div>
-      </main>
+        <div class='row'>
+          <div id='quizbox' class='card card-body mb-3'>
+            <h2 id='question' class='text-center'>This is where the questions will appear.</h2>
+            <ul id='answers' class='flex-row'>
+              <li>1 answers</li>
+              <li>2 answers</li>
+              <li>3 answers</li>
+              <li>4 answers</li>
+            </ul>
+          </div>
+        </div>
+        <div class='row mb-4'>
+          <button id='start' class='button button-dark col-8 col-sm-6 col-md-4 col-lg-2 ms-auto me-auto'>START</button>
+        </div>
+        <div class='row mb-5'>
+          <dialog id='status' class='card col-10 ms-auto me-auto text-dark'>
+            <p class='text-center'>This will tell you when the game has ended.</p>
+          </dialog>
+        </div>
+        
+      </div>
       <!-- Content -->
       
-      <!-- Footer -->
-      <footer class="bg-dark text-center text-lg-start w-100 position-absolute bottom-0">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-          © 2020 Copyright:
-          <a class="text-light" href="http://sprengerv.com/">SprengerV.com</a>
-        </div>
-        <!-- Copyright -->
-      </footer>
     </div>
   </body>
 

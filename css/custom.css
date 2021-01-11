@@ -18,7 +18,25 @@ body{
     background-color: rgba(0, 0, 0, .4);
     margin-top: -8%;
     }
+#quizbox {
+
+    min-height: 250px;
+}
 #support {
     margin-top: 15vh;
     margin-bottom: 5vh;
+}
+#s {
+    font-family: 'Shadows Into Light', cursive;
+    margin-bottom: 10px;
+}
+#top{
+    margin-top: 15vh;
+}
+#v {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 10px;
 }
