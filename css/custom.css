@@ -8,10 +8,16 @@ body{
 .icon-color {
     background-color:#94536d !important;
 }
+#answers{
+    margin-top: 20px;
+}
 #background {
     background-image: url(#!);
     min-height: 100vh;
     background-origin: inherit;
+}
+#msgBox {
+    height: 130px;
 }
 #qr {
     padding: 2%;
@@ -19,7 +25,6 @@ body{
     margin-top: -8%;
     }
 #quizbox {
-
     min-height: 250px;
 }
 #support {
@@ -39,4 +44,10 @@ body{
     font-weight: bold;
     color: red;
     margin-bottom: 10px;
+}
+@media screen and (min-width: 768px){
+    #msgBox{
+        height: 105px;
+    }
+
 }

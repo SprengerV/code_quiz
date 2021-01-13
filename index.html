@@ -65,32 +65,34 @@
         <div id='top' class='row mb-3'>
           <div class='col-6 ms-auto'>
             <aside class='card card-body'>
-              <p id='score' class='text-center'>Your high score: XX</p>
+              <div id='score' class='text-center'>Your high score: XX</div>
             </aside>
           </div>
           <div class='col-4 me-auto'>
-            <aside id='startbox' class='card card-body'>
-              <p id='timer' class='text-dark text-center'>XXX</p>
+            <aside class='card card-body'>
+              <div id='timer' class='text-dark text-center'>60</div>
             </aside>
           </div>
         </div>
         <div class='row'>
-          <div id='quizbox' class='card card-body mb-3'>
-            <h2 id='question' class='text-center'>This is where the questions will appear.</h2>
-            <ul id='answers' class='flex-row'>
-              <li>1 answers</li>
-              <li>2 answers</li>
-              <li>3 answers</li>
-              <li>4 answers</li>
-            </ul>
+          <div id='quizbox' class='card card-body col-10 mb-3'>
+            <div id='question' class='h2 text-center'>This is where the questions will appear.</div>
+            <div class='d-flex justify-content-lg-center'>
+              <ul id='answers' class=''>
+                <li>1 answers</li>
+                <li>2 answers</li>
+                <li>3 answers</li>
+                <li>4 answers</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class='row mb-4'>
           <button id='start' class='button button-dark col-8 col-sm-6 col-md-4 col-lg-2 ms-auto me-auto'>START</button>
         </div>
         <div class='row mb-5'>
-          <dialog id='status' class='card col-10 ms-auto me-auto text-dark'>
-            <p class='text-center'>This will tell you when the game has ended.</p>
+          <dialog id='msgBox' class='card col-10 ms-auto me-auto text-dark text-center'>
+            <div id='message' class='position-bottom-50'>This will tell you when the game has ended.</div>
           </dialog>
         </div>
         
