@@ -25,7 +25,7 @@ body{
     margin-top: -8%;
     }
 #quizbox {
-    min-height: 250px;
+    height: 250px;
 }
 #support {
     margin-top: 15vh;
