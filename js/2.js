@@ -1,9 +1,8 @@
-var question = document.getElementById('question');
-var answers = document.getElementById('answers');
-var msg = document.querySelector('#message');
-var score = document.querySelector('#score');
-var start = document.querySelector('#start');
-var timer = document.getElementById('timer');
+const question = document.getElementById('question');
+const msg = document.querySelector('#message');
+const score = document.querySelector('#score');
+const start = document.querySelector('#start');
+const timer = document.getElementById('timer');
 
 // insert questions with format " 'question', answers(strings), 'correct answer' "
 var q0 = ['What is the HTML tag under which one can write the JavaScript code?','<javascript>','<script>','<scripted>','<js>','<script>'];
@@ -19,11 +18,12 @@ function init(){
     msg.innerHTML = 'You have 2 minutes to complete the quiz. You lose 1 point for every second you take to answer and 15 points for every question you get wrong.<br>Click START to begin.';
     question.innerHTML = 'CODING QUIZ';
     question.style.fontSize = '75px';
+    const answers = document.getElementById('answers');
     answers.style.visibility = 'hidden';
     timer.style.visibility = 'hidden';
     score.innerHTML = getScores();
     start.disabled = false;
-    start.addEventListener('click', startGame);
+    start.addEventListener('click', startGame);    
 }
 // TODO: check for highscore
 function getScores(){
@@ -34,10 +34,10 @@ function getScores(){
     }
 
 }
-// what happens when you click start
 
+// what happens when you click start
 function startGame(){
-    time = 120;
+    let time = 120;
     timer.innerHTML = time;
     question.style.fontSize = '28px'; 
     start.disabled = true;
@@ -64,85 +64,39 @@ function startGame(){
     setInterval(function(){timer.innerHTML = time}, 500);
     timer.style.visibility = 'visible';
     answers.style.visibility = 'visible';
-    
-    
-    // TODO for each round play(current){}
-    // start next round
-    round = 0;
-    display(round);
-
-
-  
-};
-
-
-// display a round on screen
-function display(round){
-    console.log(`round: ${round}`);
-    // current set/question
-    var current = qs[round];
-    // correct answer is last item in array
-    let correct = current[current.length-1];
-    console.log(current);
-    // push question and answers to page
-    question.innerHTML = current[0];
-    answers.innerHTML = '';
-    (function(current){
-        for (i=1;i<current.length-1;i++){
-            let ans = current[i];
-            const item = document.createElement('li');
-            item.addEventListener('click', check());
-            item.appendChild(document.createTextNode(ans));
-            answers.appendChild(item);
+    // display the first round
+    let round = 0
+    let active = qs[round]
+    let correct = active[active.length-1];
+    display(active);
+    answers.addEventListener('click', function(event){
+        if (event.target.textContent != correct){
+            console.log(`my answer: ${event.target.textContent}`)
+            timer.setAttribute('data-pass','wrong');
+            round++
+            if(round<qs.length){
+                display(round); 
+            } else{
+                youScored(tick);
+            };   
+        }; 
+        if(event.target.textContent == correct){
+            console.log(`my answer: ${event.target.textContent}`)
+            round++
+            if(round<qs.length){
+                display(round);
+            } else{
+                youScored(tick);
+            };
         };
-    })(current);
-    // document.querySelector('li.answer').addEventListener('click', function(event){
-    //     if (event.target.innerHTML != correct){
-    //         console.log(`my answer: ${event.target.textContent}`)
-    //         timer.setAttribute('data-pass','wrong');
-    //         round++
-    //         if(round<qs.length){
-    //             display(round); 
-    //         } else{
-    //             youScored(tick);
-    //         };   
-    //     }; 
-    //     if(event.target.innerHTML == correct){
-    //         console.log(`my answer: ${event.target.textContent}`)
-    //         round++
-    //         if(round<qs.length){
-    //             display(round);
-    //         } else{
-    //             youScored(tick);
-    //         };
-    //     };
-        // answers.removeEventListener('click', this);
-    // }); 
-    // return current
-    // console.log(`event.target.textContent = ${event.target.textContent}`);      
+    });   
 };
-function check(event){
-    if (event.target.innerHTML != correct){
-        console.log(`my answer: ${event.target.textContent}`)
-        timer.setAttribute('data-pass','wrong');
-        round++
-        if(round<qs.length){
-            display(round); 
-        } else{
-            youScored(tick);
-        };   
-    }; 
-    if(event.target.innerHTML == correct){
-        console.log(`my answer: ${event.target.textContent}`)
-        round++
-        if(round<qs.length){
-            display(round);
-        } else{
-            youScored(tick);
-        };
+function display(active){
+    question.innerHTML = active[0];
+    for(i=1;i<active.length;i++){
+        answers.childNodes[i*2-1].textContent = active[i];
     };
-    // answers.removeEventListener('click', this);
-}); 
+};
 // if clock reaches 0
 function youLose(){
     answers.style.visibility = 'hidden';
@@ -152,9 +106,6 @@ function youLose(){
     start.disabled = false;
     start.innerHTML = 'RETRY'
 };
-function endGame(){
-    init();
-};
+
 
 window.onload = init();
-
